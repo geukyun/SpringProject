@@ -20,9 +20,10 @@
 	
 	
 	<!-- 횡단관심에 해당하는 Admive 클래스를 등록한다. -->
-	<bean id="log" class="com.ssamz.biz.common.LogAdvice"></bean>
-	<bean id="afterReturing" class="com.ssamz.biz.common.AfterReturingLogAdvice"></bean>
-	<bean id="afterThrowing" class="com.ssamz.biz.common.AfterThrowingAdvice"></bean>
+	<bean id="log" 				class="com.ssamz.biz.common.LogAdvice"></bean>
+	<bean id="afterReturing" 	class="com.ssamz.biz.common.AfterReturingLogAdvice"></bean>
+	<bean id="afterThrowing" 	class="com.ssamz.biz.common.AfterThrowingAdvice"></bean>
+	
 	
 	<!-- AOP 설정 -->
 	<aop:config>
@@ -39,7 +40,11 @@
 		
 		<aop:aspect ref="afterThrowing">
 			<aop:after-throwing pointcut-ref="allPointcut" method="exceptionLog" throwing="exceptionObj"/>
-		</aop:aspect>		
+		</aop:aspect>
+		
+		<aop:aspect ref="around">
+			<aop:around pointcut-ref="allPointcut" method="aroundLog"/>
+		</aop:aspect>
 		
 	</aop:config>
 	
