@@ -21,8 +21,7 @@
 					<td><input type="password" name="password" /></td>
 				</tr>
 				<tr>
-					<td colspan="2" align="center"><input type="submit"
-						value="로그인" /></td>
+					<td colspan="2" align="center"><input type="submit" value="로그인" /></td>
 				</tr>
 			</table>
 		</form>
