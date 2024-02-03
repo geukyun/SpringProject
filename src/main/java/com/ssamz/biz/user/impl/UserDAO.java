@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.ssamz.biz.common.JDBCUtil;
 import com.ssamz.biz.user.UserVO;
 
-@Repository("userDAO")
+@Repository
 public class UserDAO {
 
 	// JDBC 관련 변수

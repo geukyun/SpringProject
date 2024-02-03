@@ -12,7 +12,7 @@ import com.ssamz.biz.board.BoardVO;
 import com.ssamz.biz.common.JDBCUtil;
 
 // DAO(Data Access Object)
-@Repository("boardDAO")
+@Repository
 public class BoardDAO {
 
 	// JDBC 관련 변수

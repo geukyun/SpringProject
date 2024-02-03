@@ -1,7 +1,6 @@
 package com.ssamz.biz.tv;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Properties;
 
 import org.springframework.context.support.GenericXmlApplicationContext;

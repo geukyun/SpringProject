@@ -13,7 +13,7 @@ import com.ssamz.biz.board.BoardVO;
 public class BoardServiceImpl implements BoardService {
 
 	@Autowired	// Type Injection
-	private BoardDAO boardDAO;
+	private BoardDAOSpring boardDAO;
 	
 	public void insertBoard(BoardVO vo) {
 		boardDAO.insertBoard(vo);
