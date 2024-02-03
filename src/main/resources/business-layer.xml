@@ -18,14 +18,17 @@
 	<!-- Annotation 기반의 IoC 설정 --> 
 	<context:component-scan base-package="com.ssamz.biz"/>
 	
+	<!-- Annotation 기반의 AOP 설정 -->
+	<aop:aspectj-autoproxy/>
 	
-	<!-- 횡단관심에 해당하는 Admive 클래스를 등록한다. -->
+	
+	<!-- 횡단관심에 해당하는 Admive 클래스를 등록한다.
 	<bean id="log" 				class="com.ssamz.biz.common.LogAdvice"></bean>
 	<bean id="afterReturing" 	class="com.ssamz.biz.common.AfterReturingLogAdvice"></bean>
 	<bean id="afterThrowing" 	class="com.ssamz.biz.common.AfterThrowingAdvice"></bean>
+	 -->
 	
-	
-	<!-- AOP 설정 -->
+	<!-- AOP 설정 
 	<aop:config>
 		<aop:pointcut id="allPointcut" expression="execution(* com.ssamz.biz..*Impl.*(..))"/>
 		<aop:pointcut id="getPointcut" expression="execution(* com.ssamz.biz..*Impl.get*(..))"/>
@@ -47,6 +50,6 @@
 		</aop:aspect>
 		
 	</aop:config>
-	
+	-->
 	 	
 </beans>
