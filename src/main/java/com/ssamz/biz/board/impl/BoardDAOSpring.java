@@ -1,6 +1,5 @@
 package com.ssamz.biz.board.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,7 @@ public class BoardDAOSpring {
 	
 	// SQL 명령어들
 	private final String BOARD_INSERT = "insert into board(seq, title, writer, content) values ((select nvl(max(seq), 0)+1 from board),?,?,?)";
-	private final String BOARD_UPDATE = "update board set title=?, content=?, where seq=?";
+	private final String BOARD_UPDATE = "update board set title=?, content=? where seq=?";
 	private final String BOARD_DELETE = "delete from board where seq=?";
 	private final String BOARD_GET	  = "select * from board where seq=?";
 	private final String BOARD_LIST	  = "select * from board order by seq desc";
@@ -47,16 +46,13 @@ public class BoardDAOSpring {
 	// 글 상세 조회
 	public BoardVO getBoard(BoardVO vo) {
 		System.out.println("===> SPRING로 getBoard() 기능 처리");
-		BoardVO board = null;
-		
-		return board;
+		Object[] params = {vo.getSeq()};
+		return spring.queryForObject(BOARD_GET, params, new BoardRowMapper());
 	}
 	
 	// 글 상세 조회
 	public List<BoardVO> getBoardList(BoardVO vo) {
 		System.out.println("===> SPRING로 getBoardList() 기능 처리");
-		List<BoardVO> boardList = new ArrayList<BoardVO>();
-		
-		return boardList;
+		return spring.query(BOARD_LIST, new BoardRowMapper());
 	}
 }
