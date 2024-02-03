@@ -56,7 +56,15 @@
 			<tx:method name="*" rollback-for="Excepion"/>
 		</tx:attributes>
 	</tx:advice>
+	
+	<aop:config>
+		<aop:pointcut id="txPointcut" expression="execution(* com.ssamz.biz..*Impl.*(..))"/>
+		
+		<aop:advisor pointcut-ref="txPointcut" advice-ref="txAdvice"/>
+	</aop:config>
 	<!-- Transaction 설정 End -->
+	
+	
 	
 	<!-- 횡단관심에 해당하는 Admive 클래스를 등록한다.
 	<bean id="log" 				class="com.ssamz.biz.common.LogAdvice"></bean>
