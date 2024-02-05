@@ -2,6 +2,7 @@ package com.ssamz.controller.user;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.ssamz.biz.user.UserVO;
 import com.ssamz.biz.user.impl.UserDAO;
@@ -28,6 +29,8 @@ public class LoginController implements Controller {
 		// 3. 화면 네비게이션
 		if (user != null) {
 			// 로그인 성공한 경우
+//			HttpSession session = request.getSession();
+//			session.setAttribute("user", user);
 			return "getBoardList.do";
 		} else {
 			// 로그인 실패한 경우

@@ -1,16 +1,10 @@
-<%@page import="java.util.List"%>
-<%@page import="com.ssamz.biz.board.impl.BoardDAO"%>
-<%@page import="com.ssamz.biz.board.BoardVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<%
-	
-	// 1. Controller(Servlet)가 Model(DAO)을 이용하여 검색한 결과를 세션으로부터 추출한다.
-	List<BoardVO> boardList = (List) session.getAttribute("boardList");
-	
-	// 2. 응답화면 구성
-	
-%>
+<!-- 
+	JSTL(JSP Standard Tag Library) 이란?
+	JSP 파일에서 if, for, switch 등과 같은 자바 코드 대체하는 표준태크
+-->
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -45,15 +39,15 @@
 				<th bgcolor="orange" width="100">조회수</th>
 			</tr>
 	
-			<% for(BoardVO board : boardList) {%>
+			<c:forEach var="board" items="${boardList}">
 			<tr>
-				<td><%= board.getSeq() %></td>
-				<td align="left"><a href="getBoard.do?seq=<%= board.getSeq() %>"><%= board.getTitle() %></a></td>
-				<td><%= board.getContent() %></td>
-				<td><%= board.getRegDate() %></td>
-				<td><%= board.getCnt() %></td>
+				<td>${board.seq}</td>
+				<td align="left"><a href="getBoard.do?seq=${board.seq}">${board.title}</a></td>
+				<td>${board.content}</td>
+				<td>${board.regDate}</td>
+				<td>${board.cnt}</td>
 			</tr>
-			<% } %>
+			</c:forEach>
 		</table>
 		<br> <a href="insertBoard.jsp">새글 등록</a>
 	</center>
