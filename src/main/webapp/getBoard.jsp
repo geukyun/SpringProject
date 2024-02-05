@@ -22,7 +22,7 @@
 	<center>
 		<h1>±Û »ó¼¼</h1>
 		<hr>
-		<form action="updateBoard.do method="post">
+		<form action="updateBoard.do" method="post">
 			<input type="hidden" name="seq" value="<%=board.getSeq()%>" />
 			<table border="1" cellpadding="0" cellspacing="0">
 				<tr>
