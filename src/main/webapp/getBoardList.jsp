@@ -4,13 +4,11 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 
 <%
-	// 1. DB 연동 처리
-	BoardVO vo = new BoardVO();
-	BoardDAO boardDAO = new BoardDAO();
-	List<BoardVO> boardList = boardDAO.getBoardList(vo);
+	
+	// 1. Controller(Servlet)가 Model(DAO)을 이용하여 검색한 결과를 세션으로부터 추출한다.
+	List<BoardVO> boardList = (List) session.getAttribute("boardList");
 	
 	// 2. 응답화면 구성
-	
 	
 %>
 
@@ -24,7 +22,7 @@
 	<center>
 		<h1>글 목록</h1>
 		<h3>
-			테스트님 환영합니다...<a href="logout_proc.jsp">Log-out</a>
+			테스트님 환영합니다...<a href="logout.do">Log-out</a>
 		</h3>
 		<!-- 검색 시작 -->
 		<form action="getBoardList.jsp" method="post">
@@ -50,7 +48,7 @@
 			<% for(BoardVO board : boardList) {%>
 			<tr>
 				<td><%= board.getSeq() %></td>
-				<td align="left"><a href="getBoard.jsp?seq=<%= board.getSeq() %>"><%= board.getTitle() %></a></td>
+				<td align="left"><a href="getBoard.do?seq=<%= board.getSeq() %>"><%= board.getTitle() %></a></td>
 				<td><%= board.getContent() %></td>
 				<td><%= board.getRegDate() %></td>
 				<td><%= board.getCnt() %></td>
