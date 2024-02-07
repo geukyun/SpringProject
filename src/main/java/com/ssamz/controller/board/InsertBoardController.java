@@ -31,7 +31,7 @@ public class InsertBoardController implements Controller {
 
 		// 3. 화면 네비게이션(이동할 화면 정보를 ModelAndView에 등록하여 리턴한다.)
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("getBoardList.do");
+		mav.setViewName("forward:getBoardList.do");
 		return mav;
 	}
 

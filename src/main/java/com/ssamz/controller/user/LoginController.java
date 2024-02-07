@@ -34,10 +34,10 @@ public class LoginController implements Controller {
 			// 로그인 성공한 경우
 //			HttpSession session = request.getSession();
 //			session.setAttribute("user", user);
-			mav.setViewName("getBoardList.do");
+			mav.setViewName("forward:getBoardList.do");
 		} else {
 			// 로그인 실패한 경우
-			mav.setViewName("login.do");
+			mav.setViewName("redirect:login.jsp");
 		}
 		return mav;
 		

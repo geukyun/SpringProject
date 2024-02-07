@@ -12,8 +12,6 @@
 	<bean id="deletBoard" class="com.ssamz.controller.board.DeleteBoardController"/>
 	<bean id="getBoard" class="com.ssamz.controller.board.GetBoardController"/>
 	
-	
-	
 	<!-- HandlerMapping을 등록한다. -->
 	<bean id="handlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
@@ -29,6 +27,10 @@
 		</property>
 	</bean>
 	
-	
+	<!-- ViewResolver를 등록한다. -->
+	<bean id="resourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/board/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
 	
 </beans>
