@@ -3,6 +3,7 @@ package com.ssamz.controller.user;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
 import com.ssamz.biz.user.UserVO;
@@ -11,7 +12,7 @@ import com.ssamz.biz.user.impl.UserDAO;
 public class LoginController implements Controller {
 
 	@Override
-	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("로그인 인증 처리");
 
 		// 1. 사용자 입력정보 추출
@@ -26,16 +27,20 @@ public class LoginController implements Controller {
 		UserDAO userDAO = new UserDAO();
 		UserVO user = userDAO.getUser(vo);
 
-		// 3. 화면 네비게이션
+		// 3. 화면 네비게이션(이동할 화면 정보를 ModelAndView에 등록하여 리턴한다.)
+		ModelAndView mav = new ModelAndView();
+				
 		if (user != null) {
 			// 로그인 성공한 경우
 //			HttpSession session = request.getSession();
 //			session.setAttribute("user", user);
-			return "getBoardList.do";
+			mav.setViewName("getBoardList.do");
 		} else {
 			// 로그인 실패한 경우
-			return "login.jsp";
+			mav.setViewName("login.do");
 		}
+		return mav;
+		
 	}
 
 }

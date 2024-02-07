@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
 import com.ssamz.biz.board.BoardVO;
@@ -12,7 +13,7 @@ import com.ssamz.biz.board.impl.BoardDAO;
 public class GetBoardController implements Controller {
 
 	@Override
-	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("글상세 조회 처리");
 		
 		// 1. 사용자 입력정보 추출
@@ -29,8 +30,10 @@ public class GetBoardController implements Controller {
 		HttpSession session = request.getSession();
 		session.setAttribute("board", board);
 
-		// 3. 화면 네비게이션
-		return "getBoard.jsp";
+		// 3. 화면 네비게이션(이동할 화면 정보를 ModelAndView에 등록하여 리턴한다.)
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("getBoard.jsp");
+		return mav;
 	}
 
 }
