@@ -4,9 +4,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.web.servlet.mvc.Controller;
+
 import com.ssamz.biz.board.BoardVO;
 import com.ssamz.biz.board.impl.BoardDAO;
-import com.ssamz.controller.Controller;
 
 public class GetBoardController implements Controller {
 
