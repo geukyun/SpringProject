@@ -19,6 +19,13 @@ public class BoardDAO {
 	private Connection conn = null;
 	private PreparedStatement stmt = null;
 	private ResultSet rs = null;
+	private String title;
+	
+	public void setTitle(String title) {
+		System.out.println("BoardDAO(title) : " + title);
+		this.title = title;
+	}
+	
 	
 	// SQL 명령어들
 	private final String BOARD_INSERT = "insert into board(seq, title, writer, content) values ((select nvl(max(seq), 0)+1 from board),?,?,?)";

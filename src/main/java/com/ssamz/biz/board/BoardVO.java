@@ -23,18 +23,21 @@ public class BoardVO {
 		return title;
 	}
 	public void setTitle(String title) {
+		System.out.println("BoardVO(title) : " + title);
 		this.title = title;
 	}
 	public String getWriter() {
 		return writer;
 	}
 	public void setWriter(String writer) {
+		System.out.println("BoardVO(writer) : " + writer);
 		this.writer = writer;
 	}
 	public String getContent() {
 		return content;
 	}
 	public void setContent(String content) {
+		System.out.println("BoardVO(content) : " + content);
 		this.content = content;
 	}
 	public Date getRegDate() {

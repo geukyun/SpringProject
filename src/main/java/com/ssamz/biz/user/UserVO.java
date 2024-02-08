@@ -11,12 +11,14 @@ public class UserVO {
 		return id;
 	}
 	public void setId(String id) {
+		System.out.println("UserVO(id) : " + id);
 		this.id = id;
 	}
 	public String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
+		System.out.println("UserVO(password) : " + password);
 		this.password = password;
 	}
 	public String getName() {

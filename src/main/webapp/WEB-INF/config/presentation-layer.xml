@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
-	<!-- Controller들을 등록한다. -->
+	<!-- Controller들을 등록한다. 
 	<bean id="getBoardList" class="com.ssamz.controller.board.GetBoradListController"/>
-	<bean id="login" class="com.ssamz.controller.user.LoginController"/>
-	<bean id="logout" class="com.ssamz.controller.user.LogoutController"/>
-	<bean id="insertBoard" class="com.ssamz.controller.board.InsertBoardController"/>
-	<bean id="updateBoard" class="com.ssamz.controller.board.UpdateBoardController"/>
-	<bean id="deletBoard" class="com.ssamz.controller.board.DeleteBoardController"/>
-	<bean id="getBoard" class="com.ssamz.controller.board.GetBoardController"/>
+	<bean id="login" 		class="com.ssamz.controller.user.LoginController"/>
+	<bean id="logout" 		class="com.ssamz.controller.user.LogoutController"/>
+	<bean id="insertBoard" 	class="com.ssamz.controller.board.InsertBoardController"/>
+	<bean id="updateBoard" 	class="com.ssamz.controller.board.UpdateBoardController"/>
+	<bean id="deletBoard" 	class="com.ssamz.controller.board.DeleteBoardController"/>
+	<bean id="getBoard" 	class="com.ssamz.controller.board.GetBoardController"/>
+	-->
 	
-	<!-- HandlerMapping을 등록한다. -->
+	<!-- HandlerMapping을 등록한다. 
 	<bean id="handlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
 			<props>
@@ -26,11 +29,15 @@
 			</props>
 		</property>
 	</bean>
+	-->
 	
 	<!-- ViewResolver를 등록한다. -->
 	<bean id="resourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/board/"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
+	
+	 <!-- MVC 설정을 Annotation 기반으로 처리한다. -->
+	 <context:component-scan base-package="com.ssamz.controller"/>
 	
 </beans>
