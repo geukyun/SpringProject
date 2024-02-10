@@ -29,6 +29,7 @@ public class BoardController {
 	@RequestMapping("/updateBoard.do")
 	public String updateBoard(BoardVO vo, BoardDAO boardDAO) {
 		System.out.println("글등록 처리");
+		System.out.println("수정할 게시글 정보 vo : " + vo.toString());
 		boardDAO.updateBoard(vo);
 		return "forward:getBoardList.do";
 	}
