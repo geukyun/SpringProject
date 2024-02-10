@@ -1,7 +1,5 @@
 package com.ssamz.controller.board;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -34,17 +32,19 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/getBoard.do")
-	public ModelAndView getBoard(BoardVO vo, BoardDAO boardDAO, HttpSession session, ModelAndView mav) {
+	public ModelAndView getBoard(BoardVO vo, BoardDAO boardDAO, ModelAndView mav) {
 		System.out.println("글목록 처리");
-		session.setAttribute("board", boardDAO.getBoard(vo));
+		mav.addObject("board", boardDAO.getBoard(vo));
 		mav.setViewName("getBoard");
 		return mav;
 	}
 	
 	@RequestMapping("/getBoardList.do")
-	public ModelAndView getBoardList(BoardVO vo, BoardDAO boardDAO, HttpSession session, ModelAndView mav) {
+	public ModelAndView getBoardList(BoardVO vo, BoardDAO boardDAO, ModelAndView mav) {
 		System.out.println("글목록 리스트 처리");
-		session.setAttribute("boardList", boardDAO.getBoardList(vo));
+		// ModelAndView 객체에 검색 결과와 View 이름을 저장한다.
+		// ModelAndView에 저장된 검색 결과는 자동으로 request에 등록된다.
+		mav.addObject("boardList", boardDAO.getBoardList(vo));
 		mav.setViewName("getBoardList");
 		return mav;
 	}

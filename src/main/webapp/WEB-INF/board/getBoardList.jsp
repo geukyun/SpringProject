@@ -38,7 +38,7 @@
 				<th bgcolor="orange" width="150">등록일</th>
 				<th bgcolor="orange" width="100">조회수</th>
 			</tr>
-	
+			
 			<c:forEach var="board" items="${boardList}">
 			<tr>
 				<td>${board.seq}</td>
