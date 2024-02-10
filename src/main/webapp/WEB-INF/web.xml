@@ -11,6 +11,9 @@
 		</servlet-mapping> -->
 	<!-- 우리가 cbo로 만든 DispatcherServlet 파일 end -->
 
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
 
 	<filter>
 		<filter-name>encodingFilter</filter-name>
